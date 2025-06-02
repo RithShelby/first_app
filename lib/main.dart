@@ -1,7 +1,7 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
+import 'package:team_app/helper/CustomDate.dart';
 import 'package:team_app/pages/Home_page.dart';
+import 'package:team_app/pages/main_screen.dart';
 
 void main() => runApp(const MyApp());
 
@@ -26,7 +26,12 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   late String _currentDate;
-  late Timer _timer;
+
+  void _updateDate() {
+    setState(() {
+      _currentDate = getCurrentFormattedDate();
+    });
+  }
 
   @override
   void initState() {
@@ -34,15 +39,8 @@ class _HomeScreenState extends State<HomeScreen> {
     _updateDate();
   }
 
-  void _updateDate() {
-    setState(() {
-      _currentDate = DateFormat('yyyy, MMM d, yyyy ').format(DateTime.now());
-    });
-  }
-
   @override
   void dispose() {
-    _timer.cancel();
     super.dispose();
   }
 
@@ -52,6 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 2,
+        // on the left
         leading: Padding(
           padding: const EdgeInsets.all(8.0),
           child: CircleAvatar(
@@ -75,6 +74,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ],
         ),
+        // on the right
         actions: [
           Container(
             margin: const EdgeInsets.only(right: 12),
@@ -92,7 +92,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
       ),
-      body: const HomePage(),
+      body: const MainScreen(),
     );
   }
 }
