@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:team_app/helper/AsyncWidget.dart';
 import 'package:team_app/pages/Home_page.dart';
 import 'package:team_app/pages/About_page.dart';
 import 'package:team_app/pages/Practice_page.dart';
@@ -12,7 +13,11 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   int _selectedIndex = 0;
-  final List<Widget> _pages = [HomePage(), AboutPage(), PracticePage()];
+  final List<Widget> _pages = [
+    const AsyncPageLoader(page: HomePage()),
+    const AsyncPageLoader(page: AboutPage()),
+    const AsyncPageLoader(page: PracticePage()),
+  ];
 
   @override
   Widget build(BuildContext context) {

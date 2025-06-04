@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:team_app/helper/CounterState.dart';
+import 'package:team_app/widget/Dialog.dart';
+import 'package:team_app/widget/Snackbar.dart';
 
 class PracticePage extends StatefulWidget {
   const PracticePage({super.key});
@@ -13,7 +15,7 @@ class _PracticePageState extends State<PracticePage> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      padding: EdgeInsets.all(16),
+      padding: EdgeInsets.all(20),
       child: Column(
         children: [
           Text(
@@ -93,26 +95,50 @@ class _PracticePageState extends State<PracticePage> {
               ),
             ],
           ),
-          GridView.count(
-            crossAxisCount: 3,
-            shrinkWrap: true,
-            physics: NeverScrollableScrollPhysics(), // Disable inner scrolling
-            children: List.generate(6, (index) {
-              return Card(
-                margin: EdgeInsets.all(8),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                elevation: 4,
-                child: Center(child: Text('Item $index')),
-              );
-            }),
+          SizedBox(height: 10),
+          Column(
+            children: [
+              GridView.count(
+                crossAxisCount: 2,
+                shrinkWrap: true,
+                physics:
+                    NeverScrollableScrollPhysics(), // Disable inner scrolling
+                children: List.generate(6, (index) {
+                  return Card(
+                    margin: EdgeInsets.all(8),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    elevation: 4,
+                    child: Center(child: Text('Item $index')),
+                  );
+                }),
+              ),
+            ],
           ),
           SizedBox(height: 20),
-          Text('Counter Example !'),
-          SizedBox(
-            height: 200,
-            child: Counterstate(), // You are using it here
+          Column(
+            children: [
+              Text(
+                'Example of using State',
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+              Counterstate(),
+            ],
+          ),
+          SizedBox(height: 20),
+          Column(
+            children: [
+              Center(child: Text('Example of ShowDialog and')),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [CustomShowDialog()],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [CustomSnackbar()],
+              ),
+            ],
           ),
         ],
       ),

@@ -11,12 +11,17 @@ class _CounterstateState extends State<Counterstate> {
   int counter = 0;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(child: Text('Counter : $counter')),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => setState(() => counter++),
-        child: Icon(Icons.add),
-      ),
+    return Column(
+      children: [
+        Text(
+          'Counter : $counter',
+          // style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+        ),
+        ElevatedButton(
+          onPressed: () => setState(() => counter++),
+          child: Text('Increase'),
+        ),
+      ],
     );
   }
 }
