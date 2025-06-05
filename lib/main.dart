@@ -47,8 +47,6 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 2,
         // on the left
         leading: Padding(
           padding: const EdgeInsets.all(8.0),

@@ -35,11 +35,11 @@ class _PracticePageState extends State<PracticePage> {
           SizedBox(height: 20),
           Row(
             children: [
-              Expanded(child: Container(color: Colors.green, height: 50)),
+              Expanded(child: Container(color: Colors.greenAccent, height: 50)),
               SizedBox(width: 10),
-              Expanded(child: Container(color: Colors.red, height: 50)),
+              Expanded(child: Container(color: Colors.amber, height: 50)),
               SizedBox(width: 10),
-              Expanded(child: Container(color: Colors.black, height: 50)),
+              Expanded(child: Container(color: Colors.deepOrangeAccent, height: 50)),
             ],
           ),
           SizedBox(height: 40),

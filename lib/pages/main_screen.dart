@@ -24,7 +24,7 @@ class _MainScreenState extends State<MainScreen> {
     return Scaffold(
       body: _pages[_selectedIndex],
       bottomNavigationBar: Padding(
-        padding: const EdgeInsets.all(15.0),
+        padding: EdgeInsets.all(15.0),
         child: Container(
           decoration: BoxDecoration(
             color: Colors.white,
@@ -42,7 +42,7 @@ class _MainScreenState extends State<MainScreen> {
                 });
               },
               backgroundColor: Colors.white,
-              indicatorColor: Colors.blue.shade100,
+              indicatorColor: Colors.green[100],
               destinations: const [
                 NavigationDestination(
                   icon: Icon(Icons.home_outlined),
